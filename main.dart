@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'ui/screens/ride_pref/ride_prefs_screen.dart';
 import 'ui/theme/theme.dart';
-import 'test/ride_pref_form_test_screen.dart';
+import 'package:blabla/test/ride_pref_form_test_screen.dart';
 
 void main() {
    runApp(const BlaBlaApp()); 

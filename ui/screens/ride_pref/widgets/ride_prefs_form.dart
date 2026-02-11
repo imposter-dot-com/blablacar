@@ -1,8 +1,8 @@
+import 'package:blabla/ui/screens/location_picker/location_picker_screen.dart';
 import 'package:blabla/ui/widgets/buttons/bla_button.dart';
 import 'package:blabla/ui/widgets/inputs/bla_input_fields.dart';
 import 'package:flutter/material.dart';
 import '../../../theme/theme.dart';
-import '../../../widgets/inputs/bla_input_fields.dart';
 import '../../../../models/ride/locations.dart';
 import '../../../../models/ride_pref/ride_pref.dart';
 import '../../../../utils/date_time_utils.dart';
@@ -90,6 +90,38 @@ class _RidePrefFormState extends State<RidePrefForm> {
     }
   }
 
+  Future<void> _selectDeparture() async {
+    final result = await Navigator.push<Location>(
+      context,
+      MaterialPageRoute(
+        builder: (context) => LocationPickerScreen(
+          title: 'Select departure',
+          initialLocation: departure,
+        ),
+      ),
+    );
+
+    if(result != null){
+      setState(() {
+        departure = result;
+      });
+    }
+  }
+
+  Future<void> _selectArrival() async{
+    final result = await Navigator.push<Location>(context,
+    MaterialPageRoute(builder: (context) => LocationPickerScreen(
+      title: "Select Arrival",
+      initialLocation: arrival,
+    )));
+
+    if(result != null){
+      setState(() {
+        arrival = result;
+      });
+    }
+  }
+
   // ----------------------------------
   // Compute the widgets rendering
   // ----------------------------------
@@ -112,9 +144,7 @@ class _RidePrefFormState extends State<RidePrefForm> {
                 label: "Departure",
                 value: departure?.name,
                 icon: Icons.trip_origin,
-                onTap: () {
-                  print("Select departure");
-                },
+                onTap: _selectDeparture,
               ),
               Positioned(
                 right: 0,
@@ -135,10 +165,7 @@ class _RidePrefFormState extends State<RidePrefForm> {
             label: 'Arrival',
             value: arrival?.name,
             icon: Icons.trip_origin,
-            onTap: () {
-              //will navigate to location picker later
-              print("Select your arrival location: ");
-            },
+            onTap: _selectArrival,
           ),
 
           SizedBox(height: BlaSpacings.m),
