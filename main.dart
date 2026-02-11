@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'ui/screens/ride_pref/ride_prefs_screen.dart';
 import 'ui/theme/theme.dart';
-
+import 'test/ride_pref_form_test_screen.dart';
 
 void main() {
    runApp(const BlaBlaApp()); 
@@ -17,7 +17,7 @@ class BlaBlaApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: blaTheme,
-      home: Scaffold(body: RidePrefsScreen()),
+      home: RidePrefFormTestScreen(),
     );
   }
 }
