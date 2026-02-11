@@ -50,7 +50,7 @@ class RidePrefsScreen extends StatelessWidget {
             children: [
 
               // 2 - THE FORM
-              RidePrefForm(initRidePref: RidePrefsService.selectedRidePref),
+              RidePrefForm(initRidePref: RidePrefsService.currentRidePref),
               SizedBox(height: BlaSpacings.m),
 
               // 3 - THE HISTORY 

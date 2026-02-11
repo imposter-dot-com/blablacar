@@ -7,7 +7,10 @@ import '../models/ride_pref/ride_pref.dart';
 ///   - Curent selected ride preferences.
 ///
 class RidePrefsService {
-  static RidePref? selectedRidePref; // The current selected ride preference
+
+  static RidePref? currentRidePref; // The current selected ride preference
 
   static List<RidePref> ridePrefsHistory = fakeRidePrefs;
+
+  static bool get hasCurrentRidePref => currentRidePref != null;
 }
